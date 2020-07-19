@@ -45,7 +45,7 @@ and open the template in the editor.
                     <td th:text = "${as.start}"></td>
                     <td th:text = "${as.finish}"></td>
                     <td>
-                        <a th:href="@{id (id=${as.id})}">get</a>
+                        <a th:href="@{${as.id}}">get</a>
 <!--                        <a th:href="@{/delete/{id} (id=${as.id})}">delete</a>-->
                     </td>
                 </tr>

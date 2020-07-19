@@ -5,14 +5,13 @@
  */
 package com.exercise.booking.controllers;
 
-import com.exercise.booking.entities.Booking;
-import com.exercise.booking.services.BookingService;
+import com.exercise.booking.entities.Mahasiswa;
+import com.exercise.booking.services.MahasiswaService;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**
@@ -20,27 +19,20 @@ import org.springframework.web.bind.annotation.PostMapping;
  * @author yosef
  */
 @Controller
-public class BookingController {
+public class MahasiswaController {
     @Autowired
-    BookingService bookingService;
+    MahasiswaService mahasiswaService;
     
     @GetMapping("")
     public String index(Model model){
-        model.addAttribute("booking", new Booking());
-        model.addAttribute("bookings", bookingService.getAll());
+        model.addAttribute("mahasiswa", new Mahasiswa());
+        model.addAttribute("mahasiswas", mahasiswaService.getAll());
         return "index";
     }
     
     @PostMapping("/save")
-    public String save(@Valid Booking booking){
-        bookingService.save(booking);
+    public String save(@Valid Mahasiswa mahasiswa){
+        mahasiswaService.save(mahasiswa);
         return "redirect:/";
     }
-    
-//    @GetMapping("/delete/{id}")
-//    public String delete (Model model, @PathVariable("id") String id){
-//        int Id = Integer.parseInt(id);
-//        bookingService.delete(Id);
-//        return "redirect:/";
-//    }
 }
