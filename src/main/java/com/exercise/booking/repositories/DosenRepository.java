@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author yosef
  */
 @Repository
-public interface DosenRepository extends JpaRepository<Dosen, Integer> {
+public interface DosenRepository extends JpaRepository<Dosen, String> {
     
 }

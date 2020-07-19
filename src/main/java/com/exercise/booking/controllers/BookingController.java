@@ -37,10 +37,18 @@ public class BookingController {
         return "redirect:/";
     }
     
-//    @GetMapping("/delete/{id}")
-//    public String delete (Model model, @PathVariable("id") String id){
-//        int Id = Integer.parseInt(id);
-//        bookingService.delete(Id);
-//        return "redirect:/";
-//    }
+    @GetMapping("/delete/{id}")
+    public String delete (Model model, @PathVariable("id") String id){
+        int Id = Integer.parseInt(id);
+        bookingService.delete(Id);
+        return "redirect:/";
+    }
+    
+@GetMapping("{id}")
+    public String getById(Model model, @PathVariable("id") String id){
+        int Id = Integer.parseInt(id);
+        model.addAttribute("booking", bookingService.getById(Id));
+        model.addAttribute("bookings", bookingService.getAll());
+        return "index";
+    }    
 }

@@ -15,14 +15,18 @@ and open the template in the editor.
             
             <br>
             <form th:action="@{/save}" th:object="${booking}" method="POST">
-<!--                <label>NIM / NIP</label>
-                <input type="text" id="textNIMNIP" class="form-control" th:field="*{nim_nip}">-->
+<!--                <label>Id</label>
+                <input type="text" id="textId" class="form-control" th:field="*{id}"> <br><br>-->
+                <label>NIM / NIP</label>
+                <input type="text" id="textNIMNIP" class="form-control" th:field="*{nimnip}"><br><br>
                 <label>Date</label>
-                <input type="text" id="textDate" class="form-control" th:field="*{date}">
+                <input type="text" id="textDate" class="form-control" th:field="*{date}"> <br><br>
                 <label>Start</label>
-                <input type="text" id="textStart" class="form-control" th:field="*{start}">
+                <input type="text" id="textStart" class="form-control" th:field="*{start}"><br><br>
                 <label>Finish</label>
-                <input type="text" id="textFinish" class="form-control" th:field="*{finish}">
+                <input type="text" id="textFinish" class="form-control" th:field="*{finish}"><br><br>
+                <label>Room</label>
+                <input type="text" id="textRoom" class="form-control" th:field="*{room}">
                 <input type="submit" value="Save">
             </form>
             <br>
@@ -33,20 +37,23 @@ and open the template in the editor.
             <table>
                 <tr>    
                     <th>Id</th>
+                    <th>NIM/NIP</th>
                     <th>Date</th>
                     <th>Start</th>
                     <th>Finish</th>
+                    <th>Room</th>
                     <th>Action</th>
                 </tr>
                 <tr th:each="as : ${bookings}">
                     <td th:text = "${as.id}"></td>    
-<!--                    <td th:text = "${as.nimnip}"></td>-->
+                    <td th:text = "${as.nimnip}"></td>
                     <td th:text = "${as.date}"></td>
                     <td th:text = "${as.start}"></td>
                     <td th:text = "${as.finish}"></td>
+                    <td th:text = "${as.room}"></td>
                     <td>
                         <a th:href="@{${as.id}}">get</a>
-<!--                        <a th:href="@{/delete/{id} (id=${as.id})}">delete</a>-->
+                        <a th:href="@{/delete/{id} (id=${as.id})}">delete</a>
                     </td>
                 </tr>
             </table>

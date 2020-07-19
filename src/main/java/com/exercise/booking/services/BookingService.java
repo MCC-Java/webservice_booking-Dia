@@ -30,8 +30,13 @@ public class BookingService {
         bookingRepository.save(booking);
     }
     
-//    //ini method untuk delete
-//    public void delete(Integer id){
-//        bookingRepository.delete(new Booking(id));
-//    }
+    //ini method untuk delete
+    public void delete(Integer id){
+        bookingRepository.delete(new Booking(id));
+    }
+    
+ //search
+    public Booking getById(Integer id){
+        return bookingRepository.findById(id).get();
+    }   
 }

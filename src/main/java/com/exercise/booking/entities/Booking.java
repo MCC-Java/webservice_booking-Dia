@@ -18,6 +18,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -30,10 +32,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Booking.findAll", query = "SELECT b FROM Booking b")
     , @NamedQuery(name = "Booking.findById", query = "SELECT b FROM Booking b WHERE b.id = :id")
-    , @NamedQuery(name = "Booking.findByNimNip", query = "SELECT b FROM Booking b WHERE b.nimnip = :nimnip")
+    , @NamedQuery(name = "Booking.findByNimnip", query = "SELECT b FROM Booking b WHERE b.nimnip = :nimnip")
     , @NamedQuery(name = "Booking.findByDate", query = "SELECT b FROM Booking b WHERE b.date = :date")
     , @NamedQuery(name = "Booking.findByStart", query = "SELECT b FROM Booking b WHERE b.start = :start")
-    , @NamedQuery(name = "Booking.findByFinish", query = "SELECT b FROM Booking b WHERE b.finish = :finish")})
+    , @NamedQuery(name = "Booking.findByFinish", query = "SELECT b FROM Booking b WHERE b.finish = :finish")
+    , @NamedQuery(name = "Booking.findByRoom", query = "SELECT b FROM Booking b WHERE b.room = :room")})
 public class Booking implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,23 +45,46 @@ public class Booking implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
     @Column(name = "nimnip")
-    private Integer nimnip;
+    private String nimnip;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "date")
     @Temporal(TemporalType.DATE)
     private Date date;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "start")
     @Temporal(TemporalType.TIME)
     private Date start;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "finish")
     @Temporal(TemporalType.TIME)
     private Date finish;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "room")
+    private String room;
 
     public Booking() {
     }
 
     public Booking(Integer id) {
         this.id = id;
+    }
+
+    public Booking(Integer id, String nimnip, Date date, Date start, Date finish, String room) {
+        this.id = id;
+        this.nimnip = nimnip;
+        this.date = date;
+        this.start = start;
+        this.finish = finish;
+        this.room = room;
     }
 
     public Integer getId() {
@@ -69,11 +95,11 @@ public class Booking implements Serializable {
         this.id = id;
     }
 
-    public Integer getNimNip() {
+    public String getNimnip() {
         return nimnip;
     }
 
-    public void setNimNip(Integer nimnip) {
+    public void setNimnip(String nimnip) {
         this.nimnip = nimnip;
     }
 
@@ -99,6 +125,14 @@ public class Booking implements Serializable {
 
     public void setFinish(Date finish) {
         this.finish = finish;
+    }
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
     }
 
     @Override

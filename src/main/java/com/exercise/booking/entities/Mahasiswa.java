@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -34,29 +36,51 @@ public class Mahasiswa implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
     @Column(name = "nim")
-    private Integer nim;
+    private String nim;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
     @Column(name = "name")
     private String name;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
     @Column(name = "email")
     private String email;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "phone")
-    private Integer phone;
+    private int phone;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
     @Column(name = "address")
     private String address;
 
     public Mahasiswa() {
     }
 
-    public Mahasiswa(Integer nim) {
+    public Mahasiswa(String nim) {
         this.nim = nim;
     }
 
-    public Integer getNim() {
+    public Mahasiswa(String nim, String name, String email, int phone, String address) {
+        this.nim = nim;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+    }
+
+    public String getNim() {
         return nim;
     }
 
-    public void setNim(Integer nim) {
+    public void setNim(String nim) {
         this.nim = nim;
     }
 
@@ -76,11 +100,11 @@ public class Mahasiswa implements Serializable {
         this.email = email;
     }
 
-    public Integer getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 

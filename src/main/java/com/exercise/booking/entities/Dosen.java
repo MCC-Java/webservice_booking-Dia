@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -24,7 +26,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Dosen.findAll", query = "SELECT d FROM Dosen d")
-    , @NamedQuery(name = "Dosen.findByNik", query = "SELECT d FROM Dosen d WHERE d.nik = :nik")
+    , @NamedQuery(name = "Dosen.findByNip", query = "SELECT d FROM Dosen d WHERE d.nip = :nip")
     , @NamedQuery(name = "Dosen.findByName", query = "SELECT d FROM Dosen d WHERE d.name = :name")
     , @NamedQuery(name = "Dosen.findByEmail", query = "SELECT d FROM Dosen d WHERE d.email = :email")
     , @NamedQuery(name = "Dosen.findByPhone", query = "SELECT d FROM Dosen d WHERE d.phone = :phone")
@@ -34,30 +36,52 @@ public class Dosen implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "nik")
-    private Integer nik;
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Column(name = "nip")
+    private String nip;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
     @Column(name = "name")
     private String name;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
     @Column(name = "email")
     private String email;
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "phone")
-    private Integer phone;
+    private int phone;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
     @Column(name = "address")
     private String address;
 
     public Dosen() {
     }
 
-    public Dosen(Integer nik) {
-        this.nik = nik;
+    public Dosen(String nip) {
+        this.nip = nip;
     }
 
-    public Integer getNik() {
-        return nik;
+    public Dosen(String nip, String name, String email, int phone, String address) {
+        this.nip = nip;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
     }
 
-    public void setNik(Integer nik) {
-        this.nik = nik;
+    public String getNip() {
+        return nip;
+    }
+
+    public void setNip(String nip) {
+        this.nip = nip;
     }
 
     public String getName() {
@@ -76,11 +100,11 @@ public class Dosen implements Serializable {
         this.email = email;
     }
 
-    public Integer getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
@@ -95,7 +119,7 @@ public class Dosen implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (nik != null ? nik.hashCode() : 0);
+        hash += (nip != null ? nip.hashCode() : 0);
         return hash;
     }
 
@@ -106,7 +130,7 @@ public class Dosen implements Serializable {
             return false;
         }
         Dosen other = (Dosen) object;
-        if ((this.nik == null && other.nik != null) || (this.nik != null && !this.nik.equals(other.nik))) {
+        if ((this.nip == null && other.nip != null) || (this.nip != null && !this.nip.equals(other.nip))) {
             return false;
         }
         return true;
@@ -114,7 +138,7 @@ public class Dosen implements Serializable {
 
     @Override
     public String toString() {
-        return "com.exercise.booking.entities.Dosen[ nik=" + nik + " ]";
+        return "com.exercise.booking.entities.Dosen[ nip=" + nip + " ]";
     }
     
 }
