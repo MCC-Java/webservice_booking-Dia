@@ -35,7 +35,7 @@ public class BookingService {
         bookingRepository.delete(new Booking(id));
     }
     
- //search
+    //search
     public Booking getById(Integer id){
         return bookingRepository.findById(id).get();
     }   
