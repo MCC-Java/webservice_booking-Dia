@@ -30,9 +30,9 @@
 //        dosenRepository.save(booking);
 //    }
 //    
-////    //ini method untuk delete
-////    public void delete(Integer id){
-////        bookingRepository.delete(new Booking(id));
-////    }
+//    //ini method untuk delete
+//    public void delete(Integer id){
+//        dosenRepository.delete(new Dosen(id));
+//    }
 //}
 //

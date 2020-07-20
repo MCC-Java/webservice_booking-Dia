@@ -6,7 +6,6 @@
 package com.exercise.booking.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,8 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -52,19 +49,19 @@ public class Booking implements Serializable {
     private String nimnip;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 50)
     @Column(name = "date")
-    @Temporal(TemporalType.DATE)
-    private Date date;
+    private String date;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 50)
     @Column(name = "start")
-    @Temporal(TemporalType.TIME)
-    private Date start;
+    private String start;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 50)
     @Column(name = "finish")
-    @Temporal(TemporalType.TIME)
-    private Date finish;
+    private String finish;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -78,7 +75,7 @@ public class Booking implements Serializable {
         this.id = id;
     }
 
-    public Booking(Integer id, String nimnip, Date date, Date start, Date finish, String room) {
+    public Booking(Integer id, String nimnip, String date, String start, String finish, String room) {
         this.id = id;
         this.nimnip = nimnip;
         this.date = date;
@@ -103,27 +100,27 @@ public class Booking implements Serializable {
         this.nimnip = nimnip;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Date getStart() {
+    public String getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart(String start) {
         this.start = start;
     }
 
-    public Date getFinish() {
+    public String getFinish() {
         return finish;
     }
 
-    public void setFinish(Date finish) {
+    public void setFinish(String finish) {
         this.finish = finish;
     }
 

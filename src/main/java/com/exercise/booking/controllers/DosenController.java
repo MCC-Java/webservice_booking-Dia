@@ -26,7 +26,7 @@
 //    public String index(Model model){
 //        model.addAttribute("dosen", new Dosen());
 //        model.addAttribute("dosens", dosenService.getAll());
-//        return "index";
+//        return "dosen";
 //    }
 //    
 //    @PostMapping("/save")
@@ -35,10 +35,10 @@
 //        return "redirect:/";
 //    }
 //    
-////    @GetMapping("/delete/{id}")
-////    public String delete (Model model, @PathVariable("id") String id){
-////        int Id = Integer.parseInt(id);
-////        bookingService.delete(Id);
-////        return "redirect:/";
-////    }
+//    @GetMapping("/delete/{id}")
+//    public String delete (Model model, @PathVariable("id") String id){
+//        int Id = Integer.parseInt(id);
+//        dosenService.delete(Id);
+//        return "redirect:/";
+//    }
 //}
