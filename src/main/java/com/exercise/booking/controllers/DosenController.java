@@ -36,9 +36,9 @@ public class DosenController {
         return "redirect:/";
     }
     
-    @GetMapping("/delete/{id}")
-    public String delete (Model model, @PathVariable("id") String id){
-        dosenService.delete(id);
+    @GetMapping("/delete/{nip}")
+    public String delete (Model model, @PathVariable("id") String nip){
+        dosenService.delete(nip);
         return "redirect:/";
     }
 }

@@ -31,8 +31,8 @@ public class DosenService {
     }
     
     //ini method untuk delete
-    public void delete(String id){
-        dosenRepository.delete(new Dosen(id));
+    public void delete(String nip){
+        dosenRepository.delete(new Dosen(nip));
     }
 }
 

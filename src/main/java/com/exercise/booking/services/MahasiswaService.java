@@ -31,11 +31,11 @@ public class MahasiswaService {
     }
     
     //ini method untuk delete
-    public void delete(String id){
-        mahasiswaRepository.delete(new Mahasiswa(id));
+    public void delete(String nim){
+        mahasiswaRepository.delete(new Mahasiswa(nim));
     }
 
-    public Object getById(String id) {
+    public Object getById(String nim) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

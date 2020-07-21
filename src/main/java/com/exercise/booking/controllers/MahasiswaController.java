@@ -37,16 +37,15 @@ public class MahasiswaController {
         return "redirect:/";
     }
     
-    @GetMapping("/delete/{id}")
-    public String delete (Model model, @PathVariable("id") String id){
-        int Id = Integer.parseInt(id);
-        mahasiswaService.delete(id);
+    @GetMapping("/delete/{nim}")
+    public String delete (Model model, @PathVariable("nim") String nim){
+        mahasiswaService.delete(nim);
         return "redirect:/";
     }
     
-    @GetMapping("{id}")
-    public String getById(Model model, @PathVariable("id") String id){
-        model.addAttribute("booking", mahasiswaService.getById(id));
+    @GetMapping("{nim}")
+    public String getById(Model model, @PathVariable("nim") String nim){
+        model.addAttribute("booking", mahasiswaService.getById(nim));
         model.addAttribute("bookings", mahasiswaService.getAll());
         return "index";
     }    
