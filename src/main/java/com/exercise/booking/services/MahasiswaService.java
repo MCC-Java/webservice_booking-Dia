@@ -35,8 +35,8 @@ public class MahasiswaService {
         mahasiswaRepository.delete(new Mahasiswa(nim));
     }
 
-    public Object getById(String nim) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    //search
+    public Mahasiswa getById(String nim){
+        return mahasiswaRepository.findById(nim).get();
+    } 
 }

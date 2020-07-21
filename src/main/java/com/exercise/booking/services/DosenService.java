@@ -34,5 +34,9 @@ public class DosenService {
     public void delete(String nip){
         dosenRepository.delete(new Dosen(nip));
     }
+    //search
+    public Dosen getById(String nip){
+        return dosenRepository.findById(nip).get();
+    } 
 }
 

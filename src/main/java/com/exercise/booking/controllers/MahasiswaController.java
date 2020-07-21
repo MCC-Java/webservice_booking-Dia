@@ -24,29 +24,29 @@ public class MahasiswaController {
     @Autowired
     MahasiswaService mahasiswaService;
     
-    @GetMapping("")
+    @GetMapping("/mahasiswa")
     public String index(Model model){
         model.addAttribute("mahasiswa", new Mahasiswa());
         model.addAttribute("mahasiswas", mahasiswaService.getAll());
-        return "index";
+        return "mahasiswa";
     }
     
-    @PostMapping("/save")
+    @PostMapping("/mahasiswa/save")
     public String save(@Valid Mahasiswa mahasiswa){
         mahasiswaService.save(mahasiswa);
-        return "redirect:/";
+        return "redirect:/mahasiswa";
     }
     
-    @GetMapping("/delete/{nim}")
+    @GetMapping("/mahasiswa/delete/{nim}")
     public String delete (Model model, @PathVariable("nim") String nim){
         mahasiswaService.delete(nim);
-        return "redirect:/";
+        return "redirect:/mahasiswa";
     }
     
-    @GetMapping("{nim}")
+    @GetMapping("/mahasiswa/{nim}")
     public String getById(Model model, @PathVariable("nim") String nim){
-        model.addAttribute("booking", mahasiswaService.getById(nim));
-        model.addAttribute("bookings", mahasiswaService.getAll());
-        return "index";
+        model.addAttribute("mahasiswa", mahasiswaService.getById(nim));
+        model.addAttribute("mahasiswas", mahasiswaService.getAll());
+        return "mahasiswa";
     }    
 }

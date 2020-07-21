@@ -51,10 +51,12 @@ public class Dosen implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "email")
     private String email;
+    // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone/fax format, should be as xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 50)
     @Column(name = "phone")
-    private int phone;
+    private String phone;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -68,7 +70,7 @@ public class Dosen implements Serializable {
         this.nip = nip;
     }
 
-    public Dosen(String nip, String name, String email, int phone, String address) {
+    public Dosen(String nip, String name, String email, String phone, String address) {
         this.nip = nip;
         this.name = name;
         this.email = email;
@@ -100,11 +102,11 @@ public class Dosen implements Serializable {
         this.email = email;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
