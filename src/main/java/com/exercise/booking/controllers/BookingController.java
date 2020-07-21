@@ -44,7 +44,7 @@ public class BookingController {
         return "redirect:/";
     }
     
-@GetMapping("{id}")
+    @GetMapping("{id}")
     public String getById(Model model, @PathVariable("id") String id){
         int Id = Integer.parseInt(id);
         model.addAttribute("booking", bookingService.getById(Id));
