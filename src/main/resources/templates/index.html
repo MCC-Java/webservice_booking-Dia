@@ -11,8 +11,84 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" type="text/css">
+        <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/vendor/venobox/venobox.css" rel="stylesheet" type="text/css">
+        <link href="assets/vendor/aos/aos.css" rel="stylesheet" type="text/css">
+
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet">
     </head>
     <body>
+        <header id="header" class="fixed-top ">
+            <div class="container d-flex align-items-center">
+
+                <h1 class="logo mr-auto"><a href="" class="scrollto">Booking</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="#header" class="logo mr-auto scrollto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+                <nav class="nav-menu d-none d-lg-block">
+                    <ul>
+                        <li class="active"><a href="/">Booking</a></li>
+                        <li><a href="dosen">Dosen</a></li>
+                        <li><a href="mahasiswa">Mahasiswa</a></li>
+
+                    </ul>
+                </nav><!-- .nav-menu -->
+
+            </div>
+        </header><!-- End Header -->
+
+        <!-- ======= Hero Section ======= -->
+        <section id="hero" class="d-flex justify-cntent-center align-items-center">
+            <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
+
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="carousel-container">
+                        <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Booking Class Application</span></h2>
+                        <p class="animate__animated animate__fadeInUp">This Booking is for booking the classroom or laboratory in University. Made for Lecture and Student</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="carousel-container">
+                        <h2 class="animate__animated animate__fadeInDown">Lecture</h2>
+                        <p class="animate__animated animate__fadeInUp">Lecture can booking the classrom </p>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="carousel-container">
+                        <h2 class="animate__animated animate__fadeInDown">Student</h2>
+                        <p class="animate__animated animate__fadeInUp">Student can booking the classrom</p>
+                    </div>
+                </div>
+
+                <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+
+                <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+            </div>
+        </section><!-- End Hero -->
+
         <div align="center" class="container"> 
             <h1>Booking CRUD</h1>
 
@@ -85,9 +161,11 @@ and open the template in the editor.
             </div>
         </div>
 
-        <footer align='center'>
-            <div style="background-color: lightgray; height: 50px; display: flex; align-items: center; justify-content: center;">
-                Copyright © - Yosefa Dia
+        <footer id="footer">
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>Yosefa Dia</span></strong>. All Rights Reserved
+                </div>
             </div>
         </footer>
 
@@ -98,14 +176,27 @@ and open the template in the editor.
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script src="https://kit.fontawesome.com/e3a98e7544.js" crossorigin="anonymous"></script>
 
+        <!-- Vendor JS Files -->
+        <script src="assets/vendor/jquery/jquery.min.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+        <script src="assets/vendor/php-email-form/validate.js"></script>
+        <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+        <script src="assets/vendor/venobox/venobox.min.js"></script>
+        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="assets/vendor/aos/aos.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="assets/js/main.js"></script>
+
         <script>
-            function mySwal() {
-                Swal.fire(
-                        'Good job!',
-                        'You clicked the button!',
-                        'success'
-                        )
-            }
+                                function mySwal() {
+                                    Swal.fire(
+                                            'Good job!',
+                                            'You clicked the button!',
+                                            'success'
+                                            )
+                                }
         </script>
 
         <script>
